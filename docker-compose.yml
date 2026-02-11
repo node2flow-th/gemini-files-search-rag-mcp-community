@@ -1,0 +1,9 @@
+services:
+  gemini-file-search-rag-mcp-community:
+    build: .
+    container_name: gemini-file-search-rag-mcp-community
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3021:3000"
+    mem_limit: 512m
+    mem_reservation: 256m
