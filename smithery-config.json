@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "GEMINI_API_KEY": {
+      "type": "string",
+      "description": "Your Google Gemini API key. Get one at https://aistudio.google.com/apikey"
+    }
+  },
+  "required": ["GEMINI_API_KEY"]
+}
