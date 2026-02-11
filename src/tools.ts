@@ -8,6 +8,12 @@ export const TOOLS = [
     name: 'gemini_create_store',
     description:
       'Create a new Gemini File Search store for RAG documents. Returns the created store resource. Use this to create a knowledge base before uploading documents.',
+    annotations: {
+      title: 'Create Store',
+      readOnlyHint: false,
+      destructiveHint: false,
+      openWorldHint: false,
+    },
     inputSchema: {
       type: 'object',
       properties: {
@@ -23,6 +29,12 @@ export const TOOLS = [
     name: 'gemini_list_stores',
     description:
       'List all Gemini File Search stores. Returns store names, display names, and timestamps. Use to see available knowledge bases.',
+    annotations: {
+      title: 'List Stores',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
+    },
     inputSchema: {
       type: 'object',
       properties: {
@@ -41,6 +53,12 @@ export const TOOLS = [
     name: 'gemini_get_store',
     description:
       'Get details of a specific Gemini File Search store by its resource name.',
+    annotations: {
+      title: 'Get Store',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
+    },
     inputSchema: {
       type: 'object',
       properties: {
@@ -56,6 +74,12 @@ export const TOOLS = [
     name: 'gemini_delete_store',
     description:
       'Delete a Gemini File Search store. Use force=true to also delete all documents inside it.',
+    annotations: {
+      title: 'Delete Store',
+      readOnlyHint: false,
+      destructiveHint: true,
+      openWorldHint: false,
+    },
     inputSchema: {
       type: 'object',
       properties: {
@@ -77,6 +101,12 @@ export const TOOLS = [
     name: 'gemini_upload_to_store',
     description:
       'Upload content directly to a Gemini File Search store. Accepts text content or base64-encoded binary. For large files, use gemini_import_file_to_store instead. Returns an operation to track upload progress.',
+    annotations: {
+      title: 'Upload to Store',
+      readOnlyHint: false,
+      destructiveHint: false,
+      openWorldHint: false,
+    },
     inputSchema: {
       type: 'object',
       properties: {
@@ -122,6 +152,12 @@ export const TOOLS = [
     name: 'gemini_import_file_to_store',
     description:
       'Import a file from the Gemini Files API into a File Search store. Use this for large files that were uploaded separately via the Files API. Returns an operation to track import progress.',
+    annotations: {
+      title: 'Import File to Store',
+      readOnlyHint: false,
+      destructiveHint: false,
+      openWorldHint: false,
+    },
     inputSchema: {
       type: 'object',
       properties: {
@@ -156,6 +192,12 @@ export const TOOLS = [
     name: 'gemini_get_operation',
     description:
       'Check the status of a store operation (create, delete, import). Returns whether the operation is done and any error details.',
+    annotations: {
+      title: 'Get Operation Status',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
+    },
     inputSchema: {
       type: 'object',
       properties: {
@@ -171,6 +213,12 @@ export const TOOLS = [
     name: 'gemini_get_upload_operation',
     description:
       'Check the status of a file upload operation. Returns whether the upload is done and any error details.',
+    annotations: {
+      title: 'Get Upload Operation Status',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
+    },
     inputSchema: {
       type: 'object',
       properties: {
@@ -188,6 +236,12 @@ export const TOOLS = [
     name: 'gemini_list_documents',
     description:
       'List documents in a Gemini File Search store. Returns document names, display names, state, size, and MIME types.',
+    annotations: {
+      title: 'List Documents',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
+    },
     inputSchema: {
       type: 'object',
       properties: {
@@ -211,6 +265,12 @@ export const TOOLS = [
     name: 'gemini_get_document',
     description:
       'Get details of a specific document in a File Search store, including state, size, and metadata.',
+    annotations: {
+      title: 'Get Document',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
+    },
     inputSchema: {
       type: 'object',
       properties: {
@@ -226,6 +286,12 @@ export const TOOLS = [
     name: 'gemini_delete_document',
     description:
       'Delete a document from a File Search store. Use force=true to also delete associated chunks.',
+    annotations: {
+      title: 'Delete Document',
+      readOnlyHint: false,
+      destructiveHint: true,
+      openWorldHint: false,
+    },
     inputSchema: {
       type: 'object',
       properties: {
@@ -247,6 +313,12 @@ export const TOOLS = [
     name: 'gemini_rag_query',
     description:
       'Query your documents using Gemini RAG. Sends a natural language query grounded in your File Search stores. Returns AI-generated answer with source citations from your documents.',
+    annotations: {
+      title: 'RAG Query',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
+    },
     inputSchema: {
       type: 'object',
       properties: {

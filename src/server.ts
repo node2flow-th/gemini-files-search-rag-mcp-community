@@ -7,6 +7,10 @@ import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import {
   CallToolRequestSchema,
   ListToolsRequestSchema,
+  ListPromptsRequestSchema,
+  GetPromptRequestSchema,
+  ListResourcesRequestSchema,
+  ReadResourceRequestSchema,
 } from '@modelcontextprotocol/sdk/types.js';
 
 import { GeminiRagClient } from './gemini-client.js';
@@ -81,11 +85,13 @@ export function createServer(config?: { apiKey: string }): Server {
   const server = new Server(
     {
       name: 'gemini-file-search-rag-mcp',
-      version: '1.0.0',
+      version: '1.0.2',
     },
     {
       capabilities: {
         tools: {},
+        prompts: {},
+        resources: {},
       },
     }
   );
@@ -135,6 +141,113 @@ export function createServer(config?: { apiKey: string }): Server {
         ],
         isError: true,
       };
+    }
+  });
+
+  // List available prompts
+  server.setRequestHandler(ListPromptsRequestSchema, async () => {
+    return {
+      prompts: [
+        {
+          name: 'setup-rag',
+          description: 'Guide for setting up RAG — create stores, upload documents, and index content',
+        },
+        {
+          name: 'query-rag',
+          description: 'Guide for querying your indexed documents using Gemini RAG',
+        },
+      ],
+    };
+  });
+
+  // Get prompt content
+  server.setRequestHandler(GetPromptRequestSchema, async (request) => {
+    const { name } = request.params;
+    switch (name) {
+      case 'setup-rag':
+        return {
+          messages: [{
+            role: 'user' as const,
+            content: {
+              type: 'text' as const,
+              text: [
+                'You are a Gemini RAG setup assistant. Help me create and populate a knowledge base.',
+                '',
+                'Setup steps:',
+                '1. **Create store** — Use gemini_create_store with a display name',
+                '2. **Upload files** — Use gemini_upload_to_store to upload local files',
+                '3. **Import URLs** — Use gemini_import_file_to_store to import from URLs',
+                '4. **Check status** — Use gemini_get_operation to monitor indexing progress',
+                '5. **List documents** — Use gemini_list_documents to verify uploaded content',
+                '',
+                'Start by listing existing stores with gemini_list_stores.',
+              ].join('\n'),
+            },
+          }],
+        };
+      case 'query-rag':
+        return {
+          messages: [{
+            role: 'user' as const,
+            content: {
+              type: 'text' as const,
+              text: [
+                'You are a Gemini RAG query assistant. Help me search my indexed documents.',
+                '',
+                'Query steps:',
+                '1. **List stores** — Use gemini_list_stores to see available knowledge bases',
+                '2. **Query** — Use gemini_rag_query with store name and your question',
+                '3. **Check documents** — Use gemini_list_documents to see what is indexed',
+                '4. **Get details** — Use gemini_get_document for document metadata',
+                '',
+                'What would you like to search for?',
+              ].join('\n'),
+            },
+          }],
+        };
+      default:
+        throw new Error(`Unknown prompt: ${name}`);
+    }
+  });
+
+  // List available resources
+  server.setRequestHandler(ListResourcesRequestSchema, async () => {
+    return {
+      resources: [{
+        uri: 'gemini://server-info',
+        name: 'Gemini RAG Server Info',
+        description: 'Connection status and available tools for this Gemini RAG MCP server',
+        mimeType: 'application/json',
+      }],
+    };
+  });
+
+  // Read resource content
+  server.setRequestHandler(ReadResourceRequestSchema, async (request) => {
+    const { uri } = request.params;
+    switch (uri) {
+      case 'gemini://server-info':
+        return {
+          contents: [{
+            uri: 'gemini://server-info',
+            mimeType: 'application/json',
+            text: JSON.stringify({
+              name: 'gemini-file-search-rag-mcp',
+              version: '1.0.2',
+              connected: !!config,
+              tools_available: TOOLS.length,
+              tool_categories: {
+                stores: 4,
+                upload: 2,
+                operations: 2,
+                documents: 3,
+                rag_query: 1,
+              },
+            }, null, 2),
+          }],
+        };
+      default:
+        throw new Error(`Unknown resource: ${uri}`);
     }
   });
 

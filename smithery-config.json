@@ -1,10 +1,20 @@
 {
   "type": "object",
+  "required": ["GEMINI_API_KEY"],
   "properties": {
     "GEMINI_API_KEY": {
       "type": "string",
-      "description": "Your Google Gemini API key. Get one at https://aistudio.google.com/apikey"
+      "description": "Google Gemini API key from https://aistudio.google.com/apikey"
+    },
+    "GEMINI_TIMEOUT": {
+      "type": "number",
+      "default": 30000,
+      "description": "Request timeout in milliseconds (default: 30000)"
+    },
+    "GEMINI_API_URL": {
+      "type": "string",
+      "default": "https://generativelanguage.googleapis.com",
+      "description": "Gemini API base URL (default: https://generativelanguage.googleapis.com)"
     }
-  },
-  "required": ["GEMINI_API_KEY"]
+  }
 }
