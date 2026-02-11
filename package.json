@@ -1,0 +1,51 @@
+{
+  "name": "@node2flow/gemini-rag-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Gemini RAG — manage File Search stores, upload documents, and query with AI-powered retrieval-augmented generation",
+  "type": "module",
+  "bin": {
+    "gemini-rag-mcp": "dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "module": "./src/index.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "prepublishOnly": "npm run build",
+    "deploy": "wrangler deploy"
+  },
+  "keywords": [
+    "gemini",
+    "rag",
+    "mcp",
+    "model-context-protocol",
+    "file-search",
+    "ai",
+    "claude",
+    "cursor",
+    "google",
+    "retrieval-augmented-generation"
+  ],
+  "author": "Node2Flow",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/node2flow-th/gemini-rag-mcp-community.git"
+  },
+  "homepage": "https://github.com/node2flow-th/gemini-rag-mcp-community",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.26.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.7.2",
+    "wrangler": "^4.0.0"
+  }
+}
