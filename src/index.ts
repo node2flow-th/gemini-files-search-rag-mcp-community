@@ -5,10 +5,10 @@
  * Community edition — connects directly to Google's Gemini API.
  *
  * Usage (stdio - for Claude Desktop / Cursor / VS Code):
- *   GEMINI_API_KEY=your_key npx @node2flow/gemini-rag-mcp
+ *   GEMINI_API_KEY=your_key npx @node2flow/gemini-file-search-rag-mcp
  *
  * Usage (HTTP - Streamable HTTP transport):
- *   GEMINI_API_KEY=your_key npx @node2flow/gemini-rag-mcp --http
+ *   GEMINI_API_KEY=your_key npx @node2flow/gemini-file-search-rag-mcp --http
  */
 
 import { randomUUID } from 'node:crypto';
@@ -147,7 +147,7 @@ async function startHttp() {
   // Health check
   app.get('/', (_req: any, res: any) => {
     res.json({
-      name: 'gemini-rag-mcp',
+      name: 'gemini-file-search-rag-mcp',
       version: '1.0.0',
       status: 'ok',
       tools: TOOLS.length,

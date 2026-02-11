@@ -80,7 +80,7 @@ export async function handleToolCall(toolName: string, args: any, client: Gemini
 export function createServer(config?: { apiKey: string }): Server {
   const server = new Server(
     {
-      name: 'gemini-rag-mcp',
+      name: 'gemini-file-search-rag-mcp',
       version: '1.0.0',
     },
     {

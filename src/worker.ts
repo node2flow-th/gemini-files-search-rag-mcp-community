@@ -45,7 +45,7 @@ export default {
     // Health check
     if (url.pathname === '/' && request.method === 'GET') {
       return addCors(Response.json({
-        name: 'gemini-rag-mcp',
+        name: 'gemini-file-search-rag-mcp',
         version: '1.0.0',
         status: 'ok',
         tools: TOOLS.length,

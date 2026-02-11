@@ -1,4 +1,4 @@
-# Gemini RAG MCP Server
+# Gemini File Search RAG MCP Server
 
 [![smithery badge](https://smithery.ai/badge/node2flow/gemini-file-search-rag)](https://smithery.ai/server/node2flow/gemini-file-search-rag)
 [![npm version](https://img.shields.io/npm/v/@node2flow/gemini-file-search-rag-mcp.svg)](https://www.npmjs.com/package/@node2flow/gemini-file-search-rag-mcp)

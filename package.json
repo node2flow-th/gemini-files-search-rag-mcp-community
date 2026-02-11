@@ -1,6 +1,6 @@
 {
   "name": "@node2flow/gemini-file-search-rag-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for Gemini RAG — manage File Search stores, upload documents, and query with AI-powered retrieval-augmented generation",
   "type": "module",
   "bin": {
