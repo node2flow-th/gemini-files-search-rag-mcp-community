@@ -1,5 +1,6 @@
 # Gemini RAG MCP Server
 
+[![smithery badge](https://smithery.ai/badge/node2flow/gemini-file-search-rag)](https://smithery.ai/server/node2flow/gemini-file-search-rag)
 [![npm version](https://img.shields.io/npm/v/@node2flow/gemini-rag-mcp.svg)](https://www.npmjs.com/package/@node2flow/gemini-rag-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
