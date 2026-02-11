@@ -1,7 +1,7 @@
 # Gemini RAG MCP Server
 
 [![smithery badge](https://smithery.ai/badge/node2flow/gemini-file-search-rag)](https://smithery.ai/server/node2flow/gemini-file-search-rag)
-[![npm version](https://img.shields.io/npm/v/@node2flow/gemini-rag-mcp.svg)](https://www.npmjs.com/package/@node2flow/gemini-rag-mcp)
+[![npm version](https://img.shields.io/npm/v/@node2flow/gemini-file-search-rag-mcp.svg)](https://www.npmjs.com/package/@node2flow/gemini-file-search-rag-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 MCP (Model Context Protocol) server for Google's Gemini File Search (RAG). Manage file search stores, upload documents, and query with RAG through 12 tools.
@@ -21,7 +21,7 @@ Add to `claude_desktop_config.json`:
   "mcpServers": {
     "gemini-rag": {
       "command": "npx",
-      "args": ["-y", "@node2flow/gemini-rag-mcp"],
+      "args": ["-y", "@node2flow/gemini-file-search-rag-mcp"],
       "env": {
         "GEMINI_API_KEY": "your-gemini-api-key"
       }
@@ -39,7 +39,7 @@ Add to MCP settings:
   "mcpServers": {
     "gemini-rag": {
       "command": "npx",
-      "args": ["-y", "@node2flow/gemini-rag-mcp"],
+      "args": ["-y", "@node2flow/gemini-file-search-rag-mcp"],
       "env": {
         "GEMINI_API_KEY": "your-gemini-api-key"
       }
@@ -53,7 +53,7 @@ Add to MCP settings:
 For remote deployment or shared access:
 
 ```bash
-GEMINI_API_KEY=your_key npx @node2flow/gemini-rag-mcp --http
+GEMINI_API_KEY=your_key npx @node2flow/gemini-file-search-rag-mcp --http
 ```
 
 Server starts on port 3000 (configurable via `PORT` env var). MCP endpoint: `http://localhost:3000/mcp`
@@ -151,7 +151,7 @@ Copyright (c) 2026 [Node2Flow](https://node2flow.net)
 
 ## Links
 
-- [npm Package](https://www.npmjs.com/package/@node2flow/gemini-rag-mcp)
+- [npm Package](https://www.npmjs.com/package/@node2flow/gemini-file-search-rag-mcp)
 - [Google AI Studio](https://aistudio.google.com/)
 - [MCP Protocol](https://modelcontextprotocol.io/)
 - [Node2Flow](https://node2flow.net)
