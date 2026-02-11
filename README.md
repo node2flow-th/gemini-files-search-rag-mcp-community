@@ -125,8 +125,8 @@ Server starts on port 3000 (configurable via `PORT` env var). MCP endpoint: `htt
 ## For Developers
 
 ```bash
-git clone https://github.com/node2flow-th/gemini-rag-mcp-community.git
-cd gemini-rag-mcp-community
+git clone https://github.com/node2flow-th/gemini-files-search-rag-mcp-community.git
+cd gemini-files-search-rag-mcp-community
 npm install
 npm run build
 

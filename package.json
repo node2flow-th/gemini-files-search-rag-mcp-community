@@ -36,9 +36,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/node2flow-th/gemini-rag-mcp-community.git"
+    "url": "git+https://github.com/node2flow-th/gemini-files-search-rag-mcp-community.git"
   },
-  "homepage": "https://github.com/node2flow-th/gemini-rag-mcp-community",
+  "homepage": "https://github.com/node2flow-th/gemini-files-search-rag-mcp-community",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.26.0"
   },
